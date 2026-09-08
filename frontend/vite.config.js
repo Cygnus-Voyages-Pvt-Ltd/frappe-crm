@@ -88,14 +88,31 @@ export default defineConfig(async ({ mode }) => {
         'prosemirror-state',
         'prosemirror-view',
         'prosemirror-transform',
+        'prosemirror-gapcursor',
       ],
     },
     optimizeDeps: {
       include: [
         'feather-icons',
         'tailwind.config.js',
+        // every prosemirror package that tiptap also reaches through
+        // `@tiptap/pm/*` must be pre-bundled here. Left to auto-discovery some
+        // arrive inside the optimized deps chunk and others as raw source, which
+        // loads two instances of the module -- prosemirror-gapcursor then calls
+        // `Selection.jsonID('gapcursor', ...)` twice and the dev server dies on
+        // "Duplicate use of selection JSON ID gapcursor" before the app mounts.
         'prosemirror-state',
         'prosemirror-view',
+        'prosemirror-model',
+        'prosemirror-transform',
+        'prosemirror-gapcursor',
+        'prosemirror-dropcursor',
+        'prosemirror-history',
+        'prosemirror-commands',
+        'prosemirror-keymap',
+        'prosemirror-inputrules',
+        'prosemirror-schema-list',
+        'prosemirror-tables',
         'lowlight',
         'interactjs',
       ],
