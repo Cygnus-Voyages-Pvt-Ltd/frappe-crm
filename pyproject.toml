@@ -9,7 +9,7 @@ readme = "README.md"
 dynamic = ["version"]
 dependencies = [
     # "frappe~=15.0.0" # Installed and managed by bench.
-    "twilio==8.5.0",
+    "twilio==9.11.0",
     "requests>=2.28.0",
     # Public Suffix List lookups for the enrichment crawler's same-site scoping
     # (registrable_domain). Pinned to its bundled PSL snapshot at runtime -- no
