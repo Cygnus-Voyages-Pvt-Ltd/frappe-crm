@@ -1,0 +1,21 @@
+# Build context for docker/railway/Dockerfile. Everything here is either rebuilt
+# inside the image or irrelevant to the app.
+.git
+.github
+.devcontainer
+.vscode
+.pi
+.claude
+e2e
+test-results
+playwright-report
+**/node_modules
+frappe-ui
+frontend/coverage
+frontend/dev-dist
+crm/public/frontend
+crm/www/crm.html
+**/__pycache__
+**/*.pyc
+*.egg-info
+.DS_Store
